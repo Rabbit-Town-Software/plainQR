@@ -68,15 +68,17 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
+import androidx.core.net.toUri
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
-import com.google.mlkit.vision.barcode.BarcodeScanning
-import com.google.mlkit.vision.common.InputImage
+import com.google.zxing.BinaryBitmap
+import com.google.zxing.MultiFormatReader
+import com.google.zxing.PlanarYUVLuminanceSource
+import com.google.zxing.common.HybridBinarizer
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.net.URI
 import java.util.concurrent.Executors
-import androidx.core.net.toUri
 
 
 /**
@@ -227,26 +229,45 @@ fun PlainQRApp()
                         analysis -> analysis.setAnalyzer(cameraExecutor)
                         {
                             imageProxy -> val mediaImage = imageProxy.image
-
                             if (mediaImage != null)
                             {
-                                val inputImage = InputImage.fromMediaImage(
-                                    mediaImage,
-                                    imageProxy.imageInfo.rotationDegrees
-                                )
+                                val rotationDegrees = imageProxy.imageInfo.rotationDegrees
+                                val buffer = mediaImage.planes[0].buffer
+                                val data = ByteArray(buffer.remaining())
+                                buffer.get(data)
 
-                                val scanner = BarcodeScanning.getClient()
-                                scanner.process(inputImage).addOnSuccessListener()
+                                val width = mediaImage.width
+                                val height = mediaImage.height
+
+                                try
                                 {
-                                    barcodes -> val result = barcodes.firstOrNull()?.rawValue
-                                    if (result != null && isValidUrl(result) && !showDialog)
+                                    val source = PlanarYUVLuminanceSource(
+                                        data,
+                                        width,
+                                        height,
+                                        0,
+                                        0,
+                                        width,
+                                        height,
+                                        false
+                                    )
+                                    val bitmap = BinaryBitmap(HybridBinarizer(source))
+                                    val reader = MultiFormatReader()
+                                    val result = reader.decode(bitmap)
+
+                                    if (isValidUrl(result.text) && !showDialog)
                                     {
-                                        qrResult = result
+                                        qrResult = result.text
                                         showDialog = true
                                         isCameraActive = false
                                         haptics.performHapticFeedback(HapticFeedbackType.LongPress)
                                     }
-                                }.addOnCompleteListener()
+                                }
+                                catch (_: Exception)
+                                {
+                                    // Failed to decode — do nothing
+                                }
+                                finally
                                 {
                                     imageProxy.close()
                                 }

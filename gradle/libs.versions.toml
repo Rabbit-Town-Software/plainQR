@@ -12,10 +12,10 @@ lifecycle = "2.9.0"
 compose = "1.8.1"
 material3 = "1.3.2"
 camera = "1.4.2"
-mlkit = "17.3.0"
 composeBom = "2025.05.00"
 
 [libraries]
+zxing = { module = "com.journeyapps:zxing-android-embedded", version = "4.3.0" }
 androidx-compose-material3-material3 = { module = "androidx.compose.material3:material3" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -45,7 +45,6 @@ camera-lifecycle = { group = "androidx.camera", name = "camera-lifecycle", versi
 camera-view = { group = "androidx.camera", name = "camera-view", version.ref = "camera" }
 compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
 
-mlkit-barcode-scanning = { group = "com.google.mlkit", name = "barcode-scanning", version.ref = "mlkit" }
 ui = { module = "androidx.compose.ui:ui" }
 
 
