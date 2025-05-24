@@ -57,12 +57,13 @@ dependencies {
     implementation(libs.compose.ui)
     implementation(libs.material3)
 
+    implementation(libs.zxing)
+
     implementation(libs.camera.camera2)
     implementation(libs.camera.lifecycle)
     implementation(libs.camera.view)
     implementation(libs.camera.core)
 
-    implementation(libs.mlkit.barcode.scanning)
     implementation(platform(libs.compose.bom))
     implementation(libs.ui)
     implementation(libs.androidx.compose.material3.material3)
