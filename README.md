@@ -4,16 +4,10 @@
 </p>
 
 <h1 align="center">PlainQR</h1>
-<p align="center"><em>A minimalist QR code scanner built for privacy, speed, and simplicity.</em></p>
+<p align="center"><em>A simple, no-nonsense QR scanner. Downloadable for free on F-Droid!</em></p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/License-GPLv3-blue.svg">
-  <img src="https://img.shields.io/badge/build-pending-lightgrey.svg">
-  <img src="https://img.shields.io/github/issues/rabbit-town-software/plainqr.svg">
-  <img src="https://img.shields.io/github/last-commit/rabbit-town-software/plainqr">
-  <img src="https://img.shields.io/github/languages/code-size/rabbit-town-software/plainqr">
-  <img src="https://img.shields.io/github/languages/top/rabbit-town-software/plainqr">
-  <img src="https://img.shields.io/github/contributors/rabbit-town-software/plainqr">
 </p>
 
 ---
@@ -21,27 +15,16 @@
 ## About PlainQR
 
 **PlainQR** is a lightweight, privacy-first QR scanner for Android.  
-It launches fast, scans instantly using Google ML Kit, and never collects any user data.  
-Just scan, view, and go — no bloat, no ads, no trackers.
+Just scan, view, and go with no bloat, no ads, no trackers.
 
 ---
 
 ## Features
 
-- ⚡ Instant QR code recognition
-- 🔐 No tracking, no analytics, no ads
-- 🔄 Auto-resumes scanning on return to the app
-- 📱 Simple and intuitive UI built with Jetpack Compose
-- 🌙 Supports dark mode
-
----
-
-## Privacy Policy
-
-PlainQR does **not** collect, transmit, or store any personal data.  
-All QR detection happens **locally on your device** using on-device machine learning.  
-There are no tracking SDKs, no analytics, and no internet access required for scanning.  
-Your scans are yours — always.
+- Instant QR code recognition
+- No tracking, no analytics, no ads
+- Auto-resumes scanning on return to the app
+- Simple and intuitive UI built with Jetpack Compose
 
 ---
 
@@ -71,7 +54,7 @@ Email: [support@rabbittownsoftware.com](mailto:support@rabbittownsoftware.com)
 
 ---
 
-## 🐇 Rabbit Town Software
+## Rabbit Town Software
 
 <br/>
 
