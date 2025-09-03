@@ -1,7 +1,4 @@
 <!-- Banner Image at the top, full width -->
-<p align="center">
-  <img src="https://raw.githubusercontent.com/rabbit-town-software/plainqr/master/assets/graphicplainqr.jpg" alt="PlainQR Banner"/>
-</p>
 
 <h1 align="center">PlainQR</h1>
 <p align="center"><em>A simple, no-nonsense QR scanner. Downloadable for free on F-Droid!</em></p>
